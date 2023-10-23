@@ -14,10 +14,19 @@
             <ul>
                 <li th:each="post : ${postList}" th:text="${post.title}"></li>
             </ul>
+            <div>
+                <form action="/write" method="post">
+                    <input type="submit" value="추가">
+                </form>
+            </div>
         </div>
         <div class="content">
-            <div>제목</div>
-            <div>내용</div>
+            <div>
+                <input type="text" name="title" value="new title..">
+            </div>
+            <div>
+                <textarea name="content" cols="30" rows="10"></textarea>
+            </div>
         </div>
     </div>
 </div>

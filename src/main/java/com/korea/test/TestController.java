@@ -3,9 +3,11 @@ package com.korea.test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -28,5 +30,17 @@ public class TestController {
         model.addAttribute("postList", postList);
 
         return "main";
+    }
+
+    @PostMapping("/write")
+    public String write() {
+        Post post = new Post();
+        post.setTitle("new title..");
+        post.setContent("");
+        post.setCreateDate(LocalDateTime.now());
+
+        postRepository.save(post);
+
+        return "redirect:/";
     }
 }

@@ -51,4 +51,13 @@ public class TestController {
 
         return "main";
     }
+    @PostMapping("/update")
+    public String update(Long id, String title, String content) {
+        Post post = postRepository.findById(id).get();
+        post.setTitle(title);
+        post.setContent(content);
+
+        postRepository.save(post);
+        return "redirect:/detail/" + id;
+    }
 }

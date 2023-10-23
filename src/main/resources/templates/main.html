@@ -9,8 +9,16 @@
 <div class="wrap">
     <div class="logo">logo</div>
     <div class="content-wrap">
-        <div class="side-menu"></div>
-        <div class="content"></div>
+        <div class="side-menu">
+<!--            3. 템플릿에서 게시물 목록 출력-->
+            <ul>
+                <li th:each="post : ${postList}" th:text="${post.title}"></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div>제목</div>
+            <div>내용</div>
+        </div>
     </div>
 </div>
 </body>

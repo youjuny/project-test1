@@ -1,0 +1,23 @@
+.wrap {
+    background: bisque;
+}
+
+.logo {
+    background: aquamarine;
+}
+
+.content-wrap {
+    background: red;
+    display: flex;
+}
+
+.side-menu {
+    background: indianred;
+    width:10%;
+    height:800px;
+}
+
+.content {
+    background: lightseagreen;
+    width:90%;
+}

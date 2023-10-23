@@ -10,9 +10,11 @@
     <div class="logo">logo</div>
     <div class="content-wrap">
         <div class="side-menu">
-<!--            3. 템플릿에서 게시물 목록 출력-->
+            <!--            3. 템플릿에서 게시물 목록 출력-->
             <ul>
-                <li th:each="post : ${postList}" th:text="${post.title}"></li>
+                <li th:each="post : ${postList}">
+                    <a th:href="@{|/detail/${post.id}|}" th:text="${post.title}"></a>
+                </li>
             </ul>
             <div>
                 <form action="/write" method="post">
@@ -22,10 +24,10 @@
         </div>
         <div class="content">
             <div>
-                <input type="text" name="title" value="new title..">
+                <input type="text" name="title" th:value="${targetPost.title}">
             </div>
             <div>
-                <textarea name="content" cols="30" rows="10"></textarea>
+                <textarea name="content" cols="30" rows="10" th:text="${targetPost.content}"></textarea>
             </div>
         </div>
     </div>
